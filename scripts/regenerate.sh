@@ -8,8 +8,8 @@ for fix in responses imports diagnostics exceptions deadlines transport paths op
   python "$root/codegen/fix-dart-$fix.py" "$stage/sdk"
 done
 cp "$root/pubspec.lock" "$stage/sdk/pubspec.lock"
-docker run --rm "${identity[@]}" -v "$stage/sdk:/sdk" -v mailchannels-dart-pub:/pub-cache -w /sdk "$image" dart pub get --enforce-lockfile
-docker run --rm "${identity[@]}" --network none -v "$stage/sdk:/sdk" -v mailchannels-dart-pub:/pub-cache -w /sdk "$image" dart run build_runner build --delete-conflicting-outputs
+docker run --rm "${identity[@]}" -v "$stage/sdk:/sdk" -v mailchannels-dart-pub:/pub-cache -w /sdk "$image" dart --suppress-analytics pub get --enforce-lockfile
+docker run --rm "${identity[@]}" --network none -v "$stage/sdk:/sdk" -v mailchannels-dart-pub:/pub-cache -w /sdk "$image" dart --suppress-analytics run build_runner build --delete-conflicting-outputs
 python - "$stage/sdk" "$root" <<'COPY'
 import shutil,sys
 from pathlib import Path
