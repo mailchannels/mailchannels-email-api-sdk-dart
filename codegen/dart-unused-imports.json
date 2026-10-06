@@ -1,0 +1,70 @@
+[
+  {
+    "path": "lib/src/api/custom_tracking_api.dart",
+    "import": "package:built_value/json_object.dart"
+  },
+  {
+    "path": "lib/src/api/custom_tracking_api.dart",
+    "import": "package:mailchannels_email_api/src/model/dns_setup_required.dart"
+  },
+  {
+    "path": "lib/src/api/custom_tracking_api.dart",
+    "import": "package:mailchannels_email_api/src/model/error_response.dart"
+  },
+  {
+    "path": "lib/src/api/dkim_api.dart",
+    "import": "package:built_value/json_object.dart"
+  },
+  {
+    "path": "lib/src/api/dkim_api.dart",
+    "import": "package:mailchannels_email_api/src/model/error_response.dart"
+  },
+  {
+    "path": "lib/src/api/metrics_api.dart",
+    "import": "package:built_value/json_object.dart"
+  },
+  {
+    "path": "lib/src/api/metrics_api.dart",
+    "import": "package:mailchannels_email_api/src/model/error_response.dart"
+  },
+  {
+    "path": "lib/src/api/send_api.dart",
+    "import": "package:built_value/json_object.dart"
+  },
+  {
+    "path": "lib/src/api/send_api.dart",
+    "import": "package:mailchannels_email_api/src/model/error_response.dart"
+  },
+  {
+    "path": "lib/src/api/send_api.dart",
+    "import": "package:mailchannels_email_api/src/model/send_results.dart"
+  },
+  {
+    "path": "lib/src/api/sub_accounts_api.dart",
+    "import": "package:built_value/json_object.dart"
+  },
+  {
+    "path": "lib/src/api/sub_accounts_api.dart",
+    "import": "package:mailchannels_email_api/src/model/error_response.dart"
+  },
+  {
+    "path": "lib/src/api/suppression_api.dart",
+    "import": "package:built_value/json_object.dart"
+  },
+  {
+    "path": "lib/src/api/suppression_api.dart",
+    "import": "package:mailchannels_email_api/src/model/error_response.dart"
+  },
+  {
+    "path": "lib/src/api/usage_api.dart",
+    "import": "package:built_value/json_object.dart"
+  },
+  {
+    "path": "lib/src/api/webhooks_api.dart",
+    "import": "package:built_value/json_object.dart"
+  },
+  {
+    "path": "lib/src/api/webhooks_api.dart",
+    "import": "package:mailchannels_email_api/src/model/error_response.dart"
+  }
+]

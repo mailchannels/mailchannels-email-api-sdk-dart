@@ -1,0 +1,6 @@
+.dart_tool/
+.work/
+build/
+tool/
+__pycache__/
+*.tgz
