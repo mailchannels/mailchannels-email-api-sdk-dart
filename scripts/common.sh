@@ -11,5 +11,5 @@ mkdir -p "$root/.work"
 run_uid="$(id -u):$(id -g)"
 case $(docker info --format '{{json .SecurityOptions}}') in *rootless*) run_uid=0:0 ;; esac
 docker run --rm -v mailchannels-dart-pub:/pub-cache "$image" chown -R "$run_uid" /pub-cache
-identity=(--user "$run_uid" -e PUB_CACHE=/pub-cache)
+identity=(--user "$run_uid" --tmpfs /root:rw,mode=1777 -e PUB_CACHE=/pub-cache)
 args=(--rm "${identity[@]}" -v "$root:/sdk" -v mailchannels-dart-pub:/pub-cache -w /sdk)
