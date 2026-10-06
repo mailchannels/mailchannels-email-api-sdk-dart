@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
-root=$(cd "$(dirname "$0")/.." && pwd)
+source "$(dirname "$0")/common.sh"
 sdk="$root"
 mkdir -p "$root/.work"
 archive="$root/.work/mailchannels_email_api-0.1.0.tgz"
@@ -26,7 +25,7 @@ dependencies:
   built_collection: ^5.1.2
 YAML
 image=dart@sha256:193a4d037dcef48b56f2a3544f053f4ef3b5e9865953f8f5ff2a284554da567a
-args=(--rm --network none -v "$stage:/artifact" -v mailchannels-dart-pub:/root/.pub-cache -w /artifact/consumer)
+args=(--rm "${identity[@]}" --network none -v "$stage:/artifact" -v mailchannels-dart-pub:/pub-cache -w /artifact/consumer)
 docker run "${args[@]}" "$image" dart pub get --offline
 # Prove the consumer did not resolve the package's dev/code-generation tools.
 python - "$stage/consumer/pubspec.lock" <<'PY'

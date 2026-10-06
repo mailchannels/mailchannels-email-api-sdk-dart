@@ -8,4 +8,8 @@ case "${DART_VERSION:-3.13.1}" in
   *) echo 'Unsupported Dart version' >&2;exit 2 ;;
 esac
 mkdir -p "$root/.work"
-args=(--rm -v "$root:/sdk" -v mailchannels-dart-pub:/root/.pub-cache -w /sdk)
+run_uid="$(id -u):$(id -g)"
+case $(docker info --format '{{json .SecurityOptions}}') in *rootless*) run_uid=0:0 ;; esac
+docker run --rm -v mailchannels-dart-pub:/pub-cache "$image" chown -R "$run_uid" /pub-cache
+identity=(--user "$run_uid" -e PUB_CACHE=/pub-cache)
+args=(--rm "${identity[@]}" -v "$root:/sdk" -v mailchannels-dart-pub:/pub-cache -w /sdk)
