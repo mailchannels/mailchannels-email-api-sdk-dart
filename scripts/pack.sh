@@ -2,9 +2,8 @@
 source "$(dirname "$0")/common.sh"
 sdk="$root"
 mkdir -p "$root/.work"
-archive="$root/.work/mailchannels_email_api-0.1.0.tgz"
-# This explicit release file set includes all generated model implementations.
-tar -czf "$archive" -C "$sdk" lib example pubspec.yaml README.md LICENSE CHANGELOG.md
+# Versioned deterministic local archive and per-file review manifest.
+archive=$(python "$root/scripts/package_artifact.py" "$sdk")
 stage=$(mktemp -d "$root/.work/dart-consumer.XXXXXX")
 trap 'rm -rf "$stage"' EXIT
 mkdir "$stage/package" "$stage/consumer" "$stage/consumer/bin"
