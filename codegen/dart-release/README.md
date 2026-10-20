@@ -60,3 +60,14 @@ schema and maintained corrections; Python with PyYAML is required.
 `bash scripts/pack.sh` validates an extracted package consumer, and
 `python scripts/audit.py pubspec.lock .work/audit.json` queries OSV.
 CI performs these checks without sending email. Publishing is not automated.
+
+The local consumer archive produced by `scripts/pack.sh` is named using the
+version in `pubspec.yaml`. Its companion `.work/*.manifest.json` records the
+archive SHA256 and each packaged file's path, size and SHA256. Sorted entries,
+fixed timestamps/ownership/modes and an empty gzip filename make repeated builds
+byte-identical for unchanged content using the same Python/zlib toolchain.
+Links and special files in the explicit package file set are rejected. Review
+that file set and run `dart pub publish --dry-run` from the final checkout before
+publication: this local archive is not pub's upload archive, and its whole-file
+hash must not be presented as the hash of a future pub.dev download. Changes to
+Python/zlib can change compressed bytes; the per-file manifest remains useful.
