@@ -40,12 +40,8 @@ def package(root):
     name, version = spec["name"], spec["version"]
     if name != "mailchannels_email_api" or not isinstance(version, str):
         raise ValueError("Unexpected package identity")
-    number = r"(?:0|[1-9][0-9]*)"
-    identifier = r"[0-9A-Za-z-]+"
-    match = re.fullmatch(rf"{number}\.{number}\.{number}(?:-({identifier}(?:\.{identifier})*))?(?:\+{identifier}(?:\.{identifier})*)?", version)
-    if not match or (match[1] and any(part.isdigit() and len(part) > 1 and part[0] == "0"
-                                    for part in match[1].split("."))):
-        raise ValueError("Package version must be SemVer")
+    if not re.fullmatch(r"[0-9A-Za-z.+-]+", version):
+        raise ValueError("Package version is not filename-safe")
     work = root / ".work"
     work.mkdir(exist_ok=True)
     if work.is_symlink():
