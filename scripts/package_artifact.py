@@ -4,13 +4,11 @@ import gzip
 import hashlib
 import io
 import json
-import os
 from pathlib import Path
 import re
 import stat
 import sys
 import tarfile
-import tempfile
 
 import yaml
 
@@ -48,31 +46,25 @@ def package(root):
         raise ValueError("Package output directory must not be a link")
     archive = work / f"{name}-{version}.tgz"
     manifest = work / f"{name}-{version}.manifest.json"
-    temporary = None
-    try:
-        with tempfile.NamedTemporaryFile(dir=work, prefix="package-", delete=False) as target:
-            temporary = Path(target.name)
-            with gzip.GzipFile(filename="", mode="wb", fileobj=target, mtime=0) as compressed:
-                with tarfile.open(fileobj=compressed, mode="w", format=tarfile.PAX_FORMAT) as tar:
-                    for path, data in files.items():
-                        info = tarfile.TarInfo(path)
-                        info.size = len(data)
-                        info.mode = 0o644
-                        info.mtime = 0
-                        info.uid = info.gid = 0
-                        info.uname = info.gname = ""
-                        tar.addfile(info, io.BytesIO(data))
-        digest = hashlib.sha256(temporary.read_bytes()).hexdigest()
-        record = {"format": 1, "package": name, "version": version,
-                  "archive": archive.name, "archive_sha256": digest,
-                  "files": [{"path": path, "size": len(data), "sha256": hashlib.sha256(data).hexdigest()}
-                            for path, data in files.items()]}
-        os.replace(temporary, archive)
-        manifest.write_text(json.dumps(record, indent=2) + "\n")
-        return archive, manifest
-    finally:
-        if temporary is not None:
-            temporary.unlink(missing_ok=True)
+    buffer = io.BytesIO()
+    with gzip.GzipFile(filename="", mode="wb", fileobj=buffer, mtime=0) as compressed:
+        with tarfile.open(fileobj=compressed, mode="w", format=tarfile.PAX_FORMAT) as tar:
+            for path, data in files.items():
+                info = tarfile.TarInfo(path)
+                info.size = len(data)
+                info.mode = 0o644
+                info.mtime = 0
+                info.uid = info.gid = 0
+                info.uname = info.gname = ""
+                tar.addfile(info, io.BytesIO(data))
+    digest = hashlib.sha256(buffer.getvalue()).hexdigest()
+    record = {"format": 1, "package": name, "version": version,
+              "archive": archive.name, "archive_sha256": digest,
+              "files": [{"path": path, "size": len(data), "sha256": hashlib.sha256(data).hexdigest()}
+                        for path, data in files.items()]}
+    archive.write_bytes(buffer.getvalue())
+    manifest.write_text(json.dumps(record, indent=2) + "\n")
+    return archive, manifest
 
 
 if __name__ == "__main__":
