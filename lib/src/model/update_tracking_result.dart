@@ -10,10 +10,14 @@ class UpdateTrackingResult {
   final Object? unknown;
   const UpdateTrackingResult(this.statusCode, {this.updated, this.accepted, this.unknown});
   static UpdateTrackingResult decode(int? status, Object raw, Serializers serializers) {
-    if (status == 200) return UpdateTrackingResult(status,
+    if (status == 200) {
+      return UpdateTrackingResult(status,
         updated: serializers.deserialize(raw, specifiedType: const FullType(CustomTrackingDomain)) as CustomTrackingDomain);
-    if (status == 202) return UpdateTrackingResult(status,
+    }
+    if (status == 202) {
+      return UpdateTrackingResult(status,
         accepted: serializers.deserialize(raw, specifiedType: const FullType(DnsSetupRequired)) as DnsSetupRequired);
+    }
     return UpdateTrackingResult(status, unknown: raw);
   }
   @override

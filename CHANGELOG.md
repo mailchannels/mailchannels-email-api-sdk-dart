@@ -1,3 +1,7 @@
+# 0.1.2
+
+Fix generated API documentation references and pub.dev analysis findings.
+
 # 0.1.1
 
 Include API files in the pub.dev package and correct installation instructions.
