@@ -2,7 +2,7 @@
 
 A server-side client for all 42 MailChannels Email API operations: sending,
 subaccounts, webhooks, suppressions, metrics, usage, DKIM and custom tracking.
-Support: dev@mailchannels.com. MIT licensed.
+MIT licensed; see Support below.
 
 This 0.1.0 candidate is not yet published to pub.dev. Installation instructions
 will point to the registry after publication. Dart 3.11 or newer is required;
@@ -50,6 +50,12 @@ deadlines/cancellation and TLS trust/hostname/expiry rejection. This is not
 exhaustive parameter/status coverage or live-provider conformance. Windows,
 macOS, HTTP/2 failures and null-versus-absent fidelity for optional nullable
 fields have not been validated.
+
+## Support
+
+This project is supported by the MailChannels team on a best-effort basis. The best way to get support is to file an issue on GitHub: https://github.com/mailchannels/mailchannels-email-api-sdk-dart/issues
+
+If you are a MailChannels customer and have a problem with the operation of the MailChannels service, you can get support at https://support.mailchannels.com/
 
 ## Development
 
