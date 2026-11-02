@@ -1,5 +1,5 @@
 name: mailchannels_email_api
-version: 0.1.0
+version: 0.1.1
 description: Server-side MailChannels Email API client for sending email, subaccounts, webhooks, suppressions, metrics and domain management.
 homepage: https://www.mailchannels.com/
 repository: https://github.com/mailchannels/mailchannels-email-api-sdk-dart

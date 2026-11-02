@@ -4,8 +4,7 @@ A server-side client for all 42 MailChannels Email API operations: sending,
 subaccounts, webhooks, suppressions, metrics, usage, DKIM and custom tracking.
 Support: dev@mailchannels.com. MIT licensed.
 
-This 0.1.0 candidate is not yet published to pub.dev. Installation instructions
-will point to the registry after publication. Dart 3.11 or newer is required;
+Install with `dart pub add mailchannels_email_api`. Dart 3.11 or newer is required;
 Linux x64 is validated on Dart 3.11.0, 3.12.0 and 3.13.1. Do not embed sending
 credentials in Flutter mobile or browser applications.
 

@@ -30,4 +30,5 @@ jobs:
       - run: python scripts/audit.py pubspec.lock .work/audit.json
       - run: |
           source scripts/common.sh
-          docker run "${args[@]}" "$image" dart --suppress-analytics pub publish --dry-run
+          docker run "${args[@]}" "$image" dart --suppress-analytics pub publish --dry-run | tee .work/pub-dry-run.txt
+          for file in lib/src/api/*.dart; do grep -Fq "$(basename "$file")" .work/pub-dry-run.txt || exit 1; done
