@@ -1,6 +1,6 @@
 {
   "pubName": "mailchannels_email_api",
-  "pubVersion": "0.1.0",
+  "pubVersion": "0.1.1",
   "pubDescription": "Server-side MailChannels Email API client; unpublished evaluation.",
   "hideGenerationTimestamp": true
 }

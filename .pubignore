@@ -14,7 +14,7 @@ tests/
 tool/
 doc/
 docs/
-api/
+/api/
 pubspec.lock
 analysis_options.yaml
 build.yaml
