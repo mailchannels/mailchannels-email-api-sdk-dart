@@ -5,6 +5,8 @@ sdk=Path(sys.argv[1]);count=0
 for p in (sdk/'lib/src/api').glob('*.dart'):
     text=p.read_text()
     n=text.count('    CancelToken? cancelToken,')
+    assert text.count('[extras]')==n, p
+    text=text.replace('[extras]', '[extra]')
     text=text.replace('    CancelToken? cancelToken,','    CancelToken? cancelToken,\n    Duration requestTimeout = const Duration(seconds: 30),')
     pattern=r'await redactDioFuture\(_dio.request<Object>\((.*?)\n    \)\);'
     def replace(match):

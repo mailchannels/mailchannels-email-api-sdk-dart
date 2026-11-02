@@ -35,7 +35,7 @@ class MetricsApi {
   /// * [interval] - The interval for aggregating metrics data. Allowed values:   - hour: Hourly breakdown   - day: Daily breakdown (default)   - week: Weekly breakdown   - month: Monthly breakdown 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
-  /// * [extras] - Can be used to add flags to the request
+  /// * [extra] - Can be used to add flags to the request
   /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
@@ -129,7 +129,7 @@ class MetricsApi {
   /// * [interval] - The interval for aggregating metrics data. Allowed values:   - hour: Hourly breakdown   - day: Daily breakdown (default)   - week: Weekly breakdown   - month: Monthly breakdown 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
-  /// * [extras] - Can be used to add flags to the request
+  /// * [extra] - Can be used to add flags to the request
   /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
@@ -223,7 +223,7 @@ class MetricsApi {
   /// * [interval] - The interval for aggregating metrics data. Allowed values:   - hour: Hourly breakdown   - day: Daily breakdown (default)   - week: Weekly breakdown   - month: Monthly breakdown 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
-  /// * [extras] - Can be used to add flags to the request
+  /// * [extra] - Can be used to add flags to the request
   /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
@@ -319,7 +319,7 @@ class MetricsApi {
   /// * [sortOrder] - The order in which to sort the results, based on total messages (processed + dropped). 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
-  /// * [extras] - Can be used to add flags to the request
+  /// * [extra] - Can be used to add flags to the request
   /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
@@ -416,7 +416,7 @@ class MetricsApi {
   /// * [interval] - The interval for aggregating metrics data. Allowed values:   - hour: Hourly breakdown   - day: Daily breakdown (default)   - week: Weekly breakdown   - month: Monthly breakdown 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
-  /// * [extras] - Can be used to add flags to the request
+  /// * [extra] - Can be used to add flags to the request
   /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress

@@ -206,6 +206,8 @@ class _$SuppressionEntryResponseSerializer implements PrimitiveSerializer<Suppre
 }
 
 
+// Preserve the generated public type name for compatibility.
+// ignore: camel_case_types
 class SuppressionEntryResponseSource_Enum extends EnumClass {
 
   @BuiltValueEnumConst(wireName: r'api')
