@@ -1,3 +1,8 @@
+# Unreleased
+
+Lead the README and pub.dev description with sending an app's email; sub-accounts
+and webhooks follow. Documentation only; no API changes.
+
 # 0.1.2
 
 Fix generated API documentation references and pub.dev analysis findings.

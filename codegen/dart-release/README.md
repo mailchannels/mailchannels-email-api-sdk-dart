@@ -1,8 +1,13 @@
 # MailChannels Email API for Dart
 
-A server-side client for all 42 MailChannels Email API operations: sending,
-subaccounts, webhooks, suppressions, metrics, usage, DKIM and custom tracking.
-MIT licensed; see Support below.
+A Dart library for MailChannels Email API. Send transactional email, such as
+sign-up confirmations, password resets, receipts and notifications, from your
+server-side Dart app, register delivery webhooks and fetch the key that signs
+them, and manage sub-accounts when your users send through your app.
+
+The client covers all 42 Email API operations: sending, sub-accounts, webhooks,
+suppressions, metrics, usage, DKIM and custom tracking. MIT licensed; see
+Support below.
 
 Install with `dart pub add mailchannels_email_api`. Dart 3.11 or newer is required;
 Linux x64 is validated on Dart 3.11.0, 3.12.0 and 3.13.1. Do not embed sending
