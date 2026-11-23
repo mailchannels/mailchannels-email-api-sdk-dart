@@ -1,3 +1,9 @@
+# 0.1.3
+
+Send `User-Agent: mailchannels-dart/<version>` from the default Dio client so MailChannels can
+attribute SDK traffic. An integration that wants its own token first rewrites
+`dio.options.headers['User-Agent']`. Flutter web can't set `User-Agent`.
+
 # 0.1.2
 
 Fix generated API documentation references and pub.dev analysis findings.
