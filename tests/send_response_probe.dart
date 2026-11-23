@@ -6,7 +6,9 @@ import 'package:mailchannels_email_api/src/serializers.dart';
 
 Future<void> main() async {
   final server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
+  String? userAgent;
   server.listen((request) async {
+    userAgent = request.headers.value('user-agent');
     await request.drain<void>();
     request.response.statusCode = 202;
     request.response.headers.contentType = ContentType.json;
@@ -35,6 +37,8 @@ Future<void> main() async {
       throw StateError('202 request_id and per-recipient results were not retained');
     }
     if (result.toString().contains('fixture-request')) throw StateError('Wrapper diagnostics leak');
+    // Bump with pubVersion in codegen/config.json.
+    if (userAgent != 'mailchannels-dart/0.1.3') throw StateError('User-Agent $userAgent');
     print('PASS native Dart send202 response retained');
   } finally {
     client.dio.close(force: true);

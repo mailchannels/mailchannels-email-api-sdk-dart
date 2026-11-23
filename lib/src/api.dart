@@ -34,6 +34,7 @@ class MailchannelsEmailApi {
             Dio(BaseOptions(
               baseUrl: basePathOverride ?? basePath,
               followRedirects: false,
+              headers: {'User-Agent': 'mailchannels-dart/0.1.3'},
               connectTimeout: const Duration(milliseconds: 5000),
               receiveTimeout: const Duration(milliseconds: 3000),
             )) {
